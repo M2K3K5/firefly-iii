@@ -476,9 +476,9 @@ class Navigation
             default    => 'Y-m-d',
             // '1D'    => 'Y-m-d',
             '1W'       => '\WW,Y',
-            '1M'       => 'Y-m',
-            '3M', '6M' => '\QQ,Y',
-            '1Y'       => 'Y',
+            '1M', 'MTD' => 'Y-m',
+            '3M', '6M', 'QTD' => '\QQ,Y',
+            '1Y', 'YTD' => 'Y',
         };
     }
 
