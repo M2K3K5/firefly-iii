@@ -422,6 +422,7 @@ class Navigation
             '1M'       => (string)trans('config.month_js'),
             'month'    => (string)trans('config.month_js'),
             'monthly'  => (string)trans('config.month_js'),
+            'MTD'      => (string)trans('config.month_js'),
             '1Y'       => (string)trans('config.year_js'),
             'YTD'      => (string)trans('config.year_js'),
             'year'     => (string)trans('config.year_js'),
@@ -432,7 +433,7 @@ class Navigation
         if (array_key_exists($repeatFrequency, $formatMap)) {
             return $date->isoFormat($formatMap[$repeatFrequency]);
         }
-        if ('3M' === $repeatFrequency || 'quarter' === $repeatFrequency) {
+        if ('3M' === $repeatFrequency || 'quarter' === $repeatFrequency || 'QTD' === $repeatFrequency) {
             $quarter = ceil($theDate->month / 3);
 
             return sprintf('Q%d %d', $quarter, $theDate->year);
@@ -475,9 +476,9 @@ class Navigation
             default    => 'Y-m-d',
             // '1D'    => 'Y-m-d',
             '1W'       => '\WW,Y',
-            '1M'       => 'Y-m',
-            '3M', '6M' => '\QQ,Y',
-            '1Y'       => 'Y',
+            '1M', 'MTD' => 'Y-m',
+            '3M', '6M', 'QTD' => '\QQ,Y',
+            '1Y', 'YTD' => 'Y',
         };
     }
 
